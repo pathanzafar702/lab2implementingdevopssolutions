@@ -33,7 +33,7 @@ jobs:
           java-version: '17'
 
       - name: Echo message
-        run: echo "Hi, I am Vraj from COSC 1209 class"
+        run: echo "Hi, I am Zafar from COSC 1209 class"
 
       - name: Setup Gradle
         uses: gradle/gradle-build-action@v2
@@ -82,8 +82,8 @@ jobs:
           docker buildx inspect --bootstrap
 
       - name: Login to Docker Hub
-        run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
+        run: echo "Jrpath@91046" | docker login -u "zafar702" --password-stdin
 
       - name: Build and Push Docker image
         run: |
-          docker buildx build --platform linux/amd64 -t "$(echo -n "${{ secrets.DOCKER_USERNAME }}/java-app:${{ github.sha }}" | tr -d '\n')" --push .
+          docker buildx build --platform linux/amd64 -t "$(echo -n "zafar702/java-app:${{ github.sha }}" | tr -d '\n')" --push .
